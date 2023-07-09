@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grade 8 IDU Emissions Solutions App HTML & JS EDITION</title>
+  <style>
+  
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="400" height="400"></canvas>
+
+  <script>
+    // the car
+    // Get the canvas element
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+  
+    //the car
+    
+    ctx.fillStyle = "rgb(133, 0, 199)";
+    ctx.fillRect(170, 210, 89, 31);
+    ctx.fillRect(192, 173, 45, 44);
+    ctx.fillStyle = "black";
+    ctx.fillRect(160, 224, 10, 10);
+    
+    ctx.beginPath();
+    ctx.ellipse(178, 250, 10, 10, 0, 0, 2*Math.PI);
+    ctx.fillStyle = "black";
+    ctx.fill();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.ellipse(255, 250, 10, 10, 0, 0, 2*Math.PI);
+    ctx.fillStyle = "black";
+    ctx.fill();
+    ctx.closePath();
+    
+    ctx.beginPath();
+    ctx.ellipse(178, 250, 2.5, 2.5, 0, 0, 2*Math.PI);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.ellipse(255, 250, 2.5, 2.5, 0, 0, 2*Math.PI);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.closePath();
+    
+    //car exhaust/fumes
+    var cloud = function(x) {
+    var fumeSize = 29;
+    ctx.beginPath();
+    ctx.ellipse(x-28,211+30,fumesSize,fumesSize);
+    ctx.ellipse(x-38,204+30,fumesSize,fumesSize);
+    ctx.ellipse(x-10,198+30,fumesSize,fumesSize);
+    ctx.ellipse(x-32,190+30,fumesSize,fumesSize);
+    ctx.ellipse(x-6,184+30,fumesSize,fumesSize);
+    ctx.fillStyle = "black";
+    ctx.fill();
+    ctx.closePath();
+    }
+    
+    cloud(170-30);
+    cloud(170-95);
+  </script>
+</body>
+</html>
