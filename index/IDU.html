@@ -16,51 +16,65 @@
     var ctx = canvas.getContext("2d");
   
     //the car
-    
+    var xPos = 240;
     ctx.fillStyle = "rgb(133, 0, 199)";
-    ctx.fillRect(170, 210, 89, 31);
-    ctx.fillRect(192, 173, 45, 44);
+    ctx.fillRect(xPos, 210, 89, 31);
+    ctx.fillRect(xPos+22, 173, 45, 44);
     ctx.fillStyle = "black";
-    ctx.fillRect(160, 224, 10, 10);
+    ctx.fillRect(xPos-10, 224, 10, 10);
     
     ctx.beginPath();
-    ctx.ellipse(178, 250, 10, 10, 0, 0, 2*Math.PI);
+    ctx.ellipse(xPos+8, 250, 10, 10, 0, 0, 2*Math.PI);
     ctx.fillStyle = "black";
     ctx.fill();
     ctx.closePath();
     ctx.beginPath();
-    ctx.ellipse(255, 250, 10, 10, 0, 0, 2*Math.PI);
+    ctx.ellipse(xPos+85, 250, 10, 10, 0, 0, 2*Math.PI);
     ctx.fillStyle = "black";
     ctx.fill();
     ctx.closePath();
     
     ctx.beginPath();
-    ctx.ellipse(178, 250, 2.5, 2.5, 0, 0, 2*Math.PI);
+    ctx.ellipse(xPos+8, 250, 2.5, 2.5, 0, 0, 2*Math.PI);
     ctx.fillStyle = "white";
     ctx.fill();
     ctx.closePath();
     ctx.beginPath();
-    ctx.ellipse(255, 250, 2.5, 2.5, 0, 0, 2*Math.PI);
+    ctx.ellipse(xPos+85, 250, 2.5, 2.5, 0, 0, 2*Math.PI);
     ctx.fillStyle = "white";
     ctx.fill();
     ctx.closePath();
     
-    var fumeSize = 29;
+    var fumesSize = 14;
     //car exhaust/fumes
-    var cloud = function(x) {
+    var x = 100;
     ctx.beginPath();
-    ctx.ellipse(x-28,211+30,fumesSize,fumesSize);
-    ctx.ellipse(x-38,204+30,fumesSize,fumesSize);
-    ctx.ellipse(x-10,198+30,fumesSize,fumesSize);
-    ctx.ellipse(x-32,190+30,fumesSize,fumesSize);
-    ctx.ellipse(x-6,184+30,fumesSize,fumesSize);
-    ctx.fillStyle = "black";
+    ctx.ellipse(x-28,241,fumesSize,fumesSize, 0, 0, 2*Math.PI);
+    ctx.fillStyle = "grey"
+    fill();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.ellipse(x-38,234,fumesSize,fumesSize, 0, 0, 2*Math.PI);
+    ctx.fillStyle = "grey"
     ctx.fill();
     ctx.closePath();
-    }
-    
-    cloud(170-30);
-    cloud(170-95);
+    ctx.beginPath();
+    ctx.ellipse(x-10,228,fumesSize,fumesSize, 0, 0, 2*Math.PI);
+    ctx.fillStyle = "grey"
+    ctx.fill();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.ellipse(x-32,220,fumesSize,fumesSize, 0, 0, 2*Math.PI);
+    ctx.fillStyle = "grey"
+    ctx.fill();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.ellipse(x-6,214,fumesSize,fumesSize, 0, 0, 2*Math.PI);
+    ctx.fillStyle = "grey"
+    ctx.fill();
+    ctx.closePath();
+    //cloud(240);
+    //cloud(75);
   </script>
 </body>
 </html>
