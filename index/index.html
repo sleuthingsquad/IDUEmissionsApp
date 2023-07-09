@@ -1,1 +1,173 @@
+noStroke();
 
+
+var XPos = 170;
+draw = function() {
+    background(255, 255, 255);
+        //download button//
+    fill(255, 0, 0);
+    rect(271, 1, 128, 46);
+    textSize(25);
+    fill(0, 0, 0);
+    var f = createFont("monospace");
+    textFont(f);
+    text("Download", 281, 35);
+
+
+    //exhaust fumes. Taken from[VIDEO] Winston Army Attack by ASBackup -> https://www.khanacademy.org/computer-programming/video-winston-army-attack/5633868521848832/
+    fill(102, 102, 102);
+    var fumesSize = 29;
+var cloud = function(x){
+ellipse(x-28,211+30,fumesSize,fumesSize);
+ellipse(x-38,204+30,fumesSize,fumesSize);
+ellipse(x-10,198+30,fumesSize,fumesSize);
+ellipse(x-32,190+30,fumesSize,fumesSize);
+ellipse(x-6,184+30,fumesSize,fumesSize);
+
+};
+    cloud(XPos-30);
+    cloud(XPos-95);
+    
+    //the car//
+    fill(133, 0, 199);
+    rect(XPos, 210, 89, 31);
+    rect(XPos+22, 173, 45, 44);
+    fill(0, 0, 0);
+    rect(XPos-10, 225, 10, 10);
+    ellipse(XPos+8, 249, 20, 20);
+    ellipse(XPos+85, 249, 20, 20);
+    fill(255, 255, 255);
+    ellipse(XPos+8, 249, 5, 5);
+    ellipse(XPos+85, 249, 5, 5);
+    //making the car disappear after a few seconds//
+    XPos++;
+    
+    // the buttons//
+    if (XPos> 550) {
+    for(var YAxis = 75; YAxis<350; YAxis+=60) {
+    fill(89, 119, 255);
+    rect(10, YAxis, 260, 50);
+    textSize(17);
+    fill(0, 0, 0);
+    
+    }
+    textFont(createFont("sans-serif"));
+    text(" Other ways to prevent pollution", 15, 103);
+    text(" How Our Product Works", 15, 163);
+    text(" The Pollutants - our enemies", 15, 223);
+    text(" My Emissions", 15, 283);
+    textFont(createFont("cursive"));
+    text(" Solutions for YOU ", 15, 343);
+    }
+    
+    // testing out the coordinates
+    /*fill(255, 0, 0);
+    ellipse(270, 365, 5, 5);
+    ellipse(10, 315, 5, 5);
+    */
+    
+        //what happens if you click the buttons//
+        // if you remove mouseIsPressed, content will show when you hover, else you will need to press and hold//
+if (mouseIsPressed && mouseX>10 && mouseX<270 && mouseY>75 && mouseY<125){
+        background(239, 255, 166);
+        textSize(18);
+        text("Other ways to prevent pollution include:", 31, 100);
+        textSize(15);
+        text("1. Carpooling", 30, 150);
+        text("2. Riding a bicycle or walking", 30, 180);
+        text("3. Recycling paper, cardboard and other recyclables", 30, 210);
+        text("4. Not littering", 30, 240);
+        text("5. Using plastic alternatives", 30, 270);
+        text("ex: cloth bags and metal water bottles", 30, 300);
+        text("6. Not bursting firecrackers", 30, 330);
+        text("7. Turning off appliances when not in use", 30, 360);
+        
+    }
+        if (mouseIsPressed && mouseX>10 && mouseX<270 && mouseY>75 && mouseY<125){
+        background(239, 255, 166);
+        textSize(18);
+        text("Other ways to prevent pollution include:", 31, 100);
+        textSize(15);
+        text("1. Carpooling", 30, 150);
+        text("2. Riding a bicycle or walking", 30, 180);
+        text("3. Recycling paper, cardboard and other recyclables", 30, 210);
+        text("4. Not littering", 30, 240);
+        text("5. Using plastic alternatives", 30, 270);
+        text("ex: cloth bags and metal water bottles", 30, 300);
+        text("6. Not bursting firecrackers", 30, 330);
+        text("7. Turning off appliances when not in use", 30, 360);
+        
+    }
+    if (mouseIsPressed && mouseX>10 && mouseX<270 && mouseY>135 && mouseY<185){
+        background(204, 245, 179);
+        textSize(18);
+        text("How our product works:", 95, 100);
+        textSize(15);
+        text("Once you attach the sensor to the exhaust of the car, ", 11, 150);
+        text("its emissions are recorded. This data is sent to the ", 11, 180);
+        text("app you download. The app uses the data about your", 11, 210);
+        text("emissions to suggest the best solutions for you.", 11, 240);
+    }
+    if (mouseIsPressed && mouseX>10 && mouseX<270 && mouseY>195 && mouseY<245){
+        background(201, 201, 201);
+        textSize(18);
+        text("The pollutants:", 132, 100);
+        textSize(15);
+        text("The product uses sensors to detect certain pollutants ", 13, 150);
+        text("to measure the amount of pollution. nitrogen and ", 11, 180);
+        text("carbon oxides are the most common pollutants, so it", 11, 210);
+        text("detects nitrogen and carbon atoms.", 11, 240);
+        textFont(createFont("fantasy"));
+        text("Fun fact: Up to a certain level, more carbon increases the rate", 15, 290);
+        text("of photosynthesis in plants!", 15, 320);
+    }
+    if (mouseIsPressed && mouseX>10 && mouseX<270 && mouseY>255 && mouseY<305){
+        background(255, 127, 127);
+        textSize(18);
+        text("Your emissions:", 129, 100);
+        textSize(15);
+        text("Daily Average:", 12, 170);
+        text("Weekly Average:", 12, 210);
+        text("Monthly Average:", 12, 250);
+        text("Yearly Average:", 12, 290);
+    }
+    if ( mouseIsPressed && mouseX>10 && mouseX<270 && mouseY>315 && mouseY<365){
+        background(70, 204, 150);
+        textSize(18);
+        text("Solutions for you:", 119, 70);
+        textSize(16);
+        text("(Based on Monthly Average Emissions in tons)", 23, 108);
+        text("If your emissions are between...", 50, 143);
+        textSize(15);
+        var solutionsYPos = 152;
+        text("0 to 1: Carpooling/take public transport/walk/ride a ", 10, solutionsYPos+20);
+        text("cycle", 10, solutionsYPos+40);
+        text("1 to 2: Carpooling/take public transport/use a", 10, solutionsYPos+63);
+        text("scrubber. Try cutting down on using the car", 10, solutionsYPos+83);
+        text(" unnecessarily or walking/cycling to close places", 10, solutionsYPos                 +103);
+        text("2 to 5: Using a scrubber or switching to an electric or ", 10, solutionsYPos          +128);
+        text("hybrid car AFTER the old one is sold/unusable.", 10, solutionsYPos+148);
+        text("Cut down on unnecessary use", 10, solutionsYPos+168);
+        text("Above 6: Switch to an electric car AFTER the old one", 10, solutionsYPos           +192);
+        text("is sold/unusable", 10, solutionsYPos+215);
+        
+        //var input = prompt("What are your average emissions?");
+        //alert(input);
+    }
+};
+/*
+var input = prompt("What are your average emissions in tons?");
+        alert(input);
+        if(input>0 && input<1) {
+          text("Instead, you can try carpooling/take public transport/walk/ride a cycle", 50, 200);
+        }
+        if(input>1 && input<2) {
+        text("Instead, you can try carpooling/take public transport/use a scrubber. Try cutting down on using the car unnecessarily or walking/cycling to close places", 20, 200);
+        }
+        if(input>6) {
+            text("Switch to an electric car AFTER the old one is sold/unusable", 50, 200);
+        }
+        else {
+            text("Congratulations! You're fully sustainable!", 30, 200);
+        }
+*/
