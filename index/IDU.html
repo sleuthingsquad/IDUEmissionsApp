@@ -91,21 +91,17 @@
   movingCar();
 
     var disappear = function() {
-      if (xPos>430) {
+      if (xPos>435) {
       window.clearInterval(MakeItDisappear);
       console.log("interval cleared")
       canvas.width = "0";
       canvas.height = "0";
-      console.log("solutions")
     var sol = document.getElementById("solutions");
     sol.innerHTML = "Solutions";
-    }
+      }
     };
     var MakeItDisappear = window.setInterval(disappear, 3000);
-
-    if(xPos>600) {
-    
-    }
+  
   </script>
 </body>
 </html>
