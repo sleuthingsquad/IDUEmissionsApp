@@ -6,20 +6,33 @@
     #solutions:hover {
       background-color:blueviolet;
     }
+    canvas {
+      border: 1px solid black;
+    }
   </style>
 </head>
 <body>
     <h1> IDU Emissions App</h1>
-    <canvas id="myCanvas" width= "400" height="400"></canvas>
+    <canvas id="myCanvas"></canvas>
     <span id="startCar">  </span>
-
+  
+    <h2 id="otherWays"></h2>
+    <br>
+    <h2 id="ourProduct"></h2>
+    <br>
+    <h2 id="pollutants"></h2>
+    <br>
+    <h2 id="myEmissions"></h2>
+    <br>
     <h2 id="solutions"></h2>
   <script>
     var car = document.getElementById("startCar");
     // Get the canvas element
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
-  
+    // Setting dimensions for canvas
+    canvas.width = window.innerWidth - 330;
+    canvas.height = window.innerHeight - 160;
     //the car
     var xPos = 235;
     var movingCar = function() {
@@ -91,13 +104,22 @@
   movingCar();
 
     var disappear = function() {
-      if (xPos>435) {
+      if (xPos>(canvas.width+40)) {
       window.clearInterval(MakeItDisappear);
       console.log("interval cleared")
       canvas.width = "0";
       canvas.height = "0";
-    var sol = document.getElementById("solutions");
-    sol.innerHTML = "Solutions";
+      var other = document.getElementById("otherWays");
+      other.innerHTML = "Other Ways To Prevent Pollution"
+      var product = document.getElementById("ourProduct");
+      product.innerHTML = "How Our Product Works";
+      var pollutant = document.getElementById("pollutants");
+      pollutant.innerHTML = "The Pollutants - Our Enemies";
+      var theEmissions = document.getElementById("myEmissions");
+      theEmissions.innerHTML = "My Emissions";
+      var solution = document.getElementById("solutions");
+      solution.innerHTML = "Solutions For You"
+      document.write(mouseX + "," + mouseY, 400, 200);
       }
     };
     var MakeItDisappear = window.setInterval(disappear, 3000);
