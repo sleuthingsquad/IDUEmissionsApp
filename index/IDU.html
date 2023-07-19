@@ -25,24 +25,24 @@
     <h1> IDU Emissions App</h1>
     <canvas id="myCanvas"></canvas>
     <span id="startCar">  </span>
-    <div class="buttons">
-    <h2 id="otherWays" class="text"></h2>
+    <div>
+    <h2 id="otherWays"></h2>
   </div>
     <br>
-    <div class="buttons">
-    <h2 id="ourProduct" class="text"></h2>
+    <div>
+    <h2 id="ourProduct"></h2>
   </div>
     <br>
-    <div class="buttons">
-    <h2 id="pollutants" class="text"></h2>
+    <div>
+    <h2 id="pollutants"></h2>
     </div>
     <br>
-    <div class="buttons">
-    <h2 id="myEmissions" class="text"></h2>
+    <div>
+    <h2 id="myEmissions"></h2>
     </div>
     <br>
-    <div class="buttons">
-    <h2 id="solutions" class="text"></h2>
+    <div>
+    <h2 id="solutions"></h2>
   </div>
   <script>
     var car = document.getElementById("startCar");
@@ -128,6 +128,18 @@
       console.log("interval cleared")
       canvas.width = "0";
       canvas.height = "0";
+
+    var div = document.querySelectorAll("div");
+    for (var i = 0; i < div.length; i++) {
+                div[i].className += " buttons";
+        console.log("class changed 1");
+            }
+      var text = document.querySelectorAll("h2");
+      for (var u = 0; u<text.length; u++) {
+        text[u].className+= " text";
+        console.log("class changed 2");
+      }
+
       var other = document.getElementById("otherWays");
       other.innerHTML = "Other Ways To Prevent Pollution"
       var product = document.getElementById("ourProduct");
