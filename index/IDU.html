@@ -123,7 +123,7 @@
   movingCar();
 
     var disappear = function() {
-      if (xPos>(canvas.width+40)) {
+      if (xPos>(canvas.width-300)) {
       window.clearInterval(MakeItDisappear);
       console.log("interval cleared")
       canvas.width = "0";
@@ -132,14 +132,12 @@
     var div = document.querySelectorAll("div");
     for (var i = 0; i < div.length; i++) {
                 div[i].className += " buttons";
-        console.log("class changed 1");
             }
       var text = document.querySelectorAll("h2");
       for (var u = 0; u<text.length; u++) {
         text[u].className+= " text";
-        console.log("class changed 2");
       }
-
+      
       var other = document.getElementById("otherWays");
       other.innerHTML = "Other Ways To Prevent Pollution"
       var product = document.getElementById("ourProduct");
@@ -150,8 +148,31 @@
       theEmissions.innerHTML = "My Emissions";
       var solution = document.getElementById("solutions");
       solution.innerHTML = "Solutions For You"
+
+      canvas.addEventListener("mousemove", function(event) {
+      var mouseX = event.clientX; // Get mouse x-position
+      var mouseY = event.clientY
+
+      if(mouseX>10 && mouseX<150 && mouseY>220 && mouseY<250) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      ctx.fillStyle = "rgb(239, 255, 166)";
+      ctx.fillRect(0, 0,window.innerWidth, window.innerHeight);
+      textSize(18);
+        document.write("Other ways to prevent pollution include:");
+        textSize(15);
+        document.write("1. Carpooling");
+        document.write("2. Riding a bicycle or walking");
+        document.write("3. Recycling paper, cardboard and other recyclables");
+        document.write("4. Not littering");
+        document.write("5. Using plastic alternatives");
+        document.write("ex: cloth bags and metal water bottles");
+        document.write("6. Not bursting firecrackers");
+        document.write("7. Turning off appliances when not in use");
+        console.log("mouseY applies");
       }
-    };
+    }
+  };
     var MakeItDisappear = window.setInterval(disappear, 3000);
   
   </script>
