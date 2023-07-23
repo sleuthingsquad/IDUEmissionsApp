@@ -122,14 +122,16 @@
   }
   movingCar();
 
+
     var disappear = function() {
-      if (xPos>(canvas.width-300)) {
+      if (xPos>(canvas.width-500)) {
+        }
       window.clearInterval(MakeItDisappear);
       console.log("interval cleared")
       canvas.width = "0";
       canvas.height = "0";
 
-    var div = document.querySelectorAll("div");
+      var div = document.querySelectorAll("div");
     for (var i = 0; i < div.length; i++) {
                 div[i].className += " buttons";
             }
@@ -149,13 +151,15 @@
       var solution = document.getElementById("solutions");
       solution.innerHTML = "Solutions For You"
 
-      canvas.addEventListener("mousemove", function(event) {
+      document.addEventListener("mousemove", function(event) {
       var mouseX = event.clientX; // Get mouse x-position
-      var mouseY = event.clientY
+      var mouseY = event.clientY; // Get mouse y-position
 
-      if(mouseX>10 && mouseX<150 && mouseY>220 && mouseY<250) {
-      canvas.width = window.innerWidth;
+      // Check if the mouse position is between (100, 100) and (200, 200)
+      if (mouseX >= 10 && mouseX <= 150 && mouseY >= 220 && mouseY <= 250) {
+        canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+
       ctx.fillStyle = "rgb(239, 255, 166)";
       ctx.fillRect(0, 0,window.innerWidth, window.innerHeight);
       textSize(18);
@@ -169,12 +173,12 @@
         document.write("ex: cloth bags and metal water bottles");
         document.write("6. Not bursting firecrackers");
         document.write("7. Turning off appliances when not in use");
-        console.log("mouseY applies");
-      }
-    }
-  };
+        }
+        else{}
+      
+    })
+  }
     var MakeItDisappear = window.setInterval(disappear, 3000);
-  
   </script>
 </body>
 </html>
