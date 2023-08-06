@@ -25,23 +25,23 @@
     <h1> IDU Emissions App</h1>
     <canvas id="myCanvas"></canvas>
     <span id="startCar">  </span>
-    <div>
+    <div id="otherWaysDiv">
     <h2 id="otherWays"></h2>
   </div>
     <br>
-    <div>
+    <div id="ourProductDiv">
     <h2 id="ourProduct"></h2>
   </div>
     <br>
-    <div>
+    <div id="pollutantsDiv">
     <h2 id="pollutants"></h2>
     </div>
     <br>
-    <div>
+    <div id="myEmissionsDiv">
     <h2 id="myEmissions"></h2>
     </div>
     <br>
-    <div>
+    <div id="solutionsDiv">
     <h2 id="solutions"></h2>
   </div>
   <script>
@@ -151,22 +151,50 @@
       var solution = document.getElementById("solutions");
       solution.innerHTML = "Solutions For You"
 
-      document.addEventListener("mousemove", function(event) {
-      var mouseX = event.clientX; // Get mouse x-position
-      var mouseY = event.clientY; // Get mouse y-position
+      // 1. Find and store the element we want to listen to events on.
+    var otherDiv = document.getElementById("otherWaysDiv");
+    // 2. Define the function that will respond to the event.
+    // callback 
+    var otherDivClicked = function() {
+      document.body.innerHTML = " "
+      document.body.style.backgroundColor = "rgb(239, 255, 166)";
+      var otherHead = document.createElement("h1");
+      otherHead.textContent = "Other ways to prevent pollution include:"
+      document.body.appendChild(otherHead);
+      otherHead.style.marginLeft = "5px"
+      var factList = document.createElement("ol");
 
-      // Check if the mouse position is between (100, 100) and (200, 200)
-      if (mouseX >= 10 && mouseX <= 150 && mouseY >= 220 && mouseY <= 250) {
-        canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      ctx.fillStyle = "rgb(239, 255, 166)";
-      ctx.fillRect(0, 0,window.innerWidth, window.innerHeight);
-      textSize(18);
-        document.write("Other ways to prevent pollution include:")
+      // Add fun facts as list items
+      var facts = [
+      "Carpooling",
+        "Riding a bicycle or walking",
+        "Recycling paper, cardboard and other recyclables",
+        "Not littering",
+        "Using plastic alternatives like cloth bags and metal water bottles",
+        "Not bursting firecrackers",
+        "Turning off appliances when not in use"
+      ];
+
+      facts.forEach(function(fact) {
+        var listItem = document.createElement("li");
+        listItem.textContent = fact;
+        factList.appendChild(listItem);
+        // Append the ordered list to the body
+      document.body.appendChild(factList);
+
+      });
     }
-  })
-};
-    var MakeItDisappear = window.setInterval(disappear, 3000);
-  </script>
+    // 3. Add the event listener for the element and function
+    otherDiv.addEventListener("click", otherDivClicked);
+    
+    var theProduct = document.getElementById("ourProductDiv");
+    var theProductClicked = function() {
+      document.body.innerHTML = " ";
+      document.body.style.backgroundColor = "rgb(204, 245, 179)";
+      
+    }
+  };
+  var MakeItDisappear = window.setInterval(disappear, 3000);
+</script>
 </body>
 </html>
