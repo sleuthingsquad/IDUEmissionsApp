@@ -3,9 +3,6 @@
 <head>
   <title>Grade 8 IDU Emissions Solutions App HTML & JS EDITION</title>
   <style>
-    #solutions:hover {
-      background-color:blueviolet;
-    }
     canvas {
       border: 1px solid black;
     }
@@ -150,7 +147,7 @@
       theEmissions.innerHTML = "My Emissions";
       var solution = document.getElementById("solutions");
       solution.innerHTML = "Solutions For You"
-
+      //other ways to prevent polllution:
       // 1. Find and store the element we want to listen to events on.
     var otherDiv = document.getElementById("otherWaysDiv");
     // 2. Define the function that will respond to the event.
@@ -162,10 +159,10 @@
       otherHead.textContent = "Other ways to prevent pollution include:"
       document.body.appendChild(otherHead);
       otherHead.style.marginLeft = "5px"
-      var factList = document.createElement("ol");
+      var optionsList = document.createElement("ol");
 
-      // Add fun facts as list items
-      var facts = [
+      // Add options as list items
+      var options = [
       "Carpooling",
         "Riding a bicycle or walking",
         "Recycling paper, cardboard and other recyclables",
@@ -175,24 +172,47 @@
         "Turning off appliances when not in use"
       ];
 
-      facts.forEach(function(fact) {
+      options.forEach(function(option) {
         var listItem = document.createElement("li");
-        listItem.textContent = fact;
-        factList.appendChild(listItem);
+        listItem.textContent = option;
+        optionsList.appendChild(listItem);
         // Append the ordered list to the body
-      document.body.appendChild(factList);
+      document.body.appendChild(optionsList);
 
       });
     }
     // 3. Add the event listener for the element and function
-    otherDiv.addEventListener("click", otherDivClicked);
-    
+    otherDiv.addEventListener("mouseover", otherDivClicked);
+    //the Product
     var theProduct = document.getElementById("ourProductDiv");
     var theProductClicked = function() {
       document.body.innerHTML = " ";
       document.body.style.backgroundColor = "rgb(204, 245, 179)";
-      
+      var howItWorksHead = document.createElement("h1");
+      howItWorksHead.textContent = "How our Product Works:"
+      document.body.appendChild(howItWorksHead);
+      var howItWorks = document.createElement("p");
+      howItWorks.textContent = " Once you attach the sensor to the exhaust of the car, its emissions are recorded. This data is sent to this website. The website uses the data about your emissions to suggest the best solutions for you."
+    document.body.appendChild(howItWorks);
     }
+    theProduct.addEventListener("mouseover", theProductClicked);
+    //The Pollutants - our enemies
+    var thePollutants = document.getElementById("pollutantsDiv");
+    var thePollutantsClicked = function() {
+      document.body.innerHTML = " ";
+      document.body.style.backgroundColor = "rgb(201, 201, 201)";
+      var pollutantsHead = document.createElement("h1");
+      pollutantsHead.textContent = "The Pollutants:"
+      document.body.appendChild(pollutantsHead);
+      var pollutantsContent = document.createElement("p");
+      pollutantsContent.textContent = "The product uses sensors to detect certain pollutants to measure the amount of pollution. Nitrogen and carbon oxides are the most common pollutants, so it detects nitrogen and carbon atoms."
+      document.body.appendChild(pollutantsContent);
+      var pollutantsFact = document.createElement("p");
+      pollutantsFact.textContent = " Fun fact: Up to a certain level, more carbon increases the rate of photosynthesis in plants!"
+      document.body.appendChild(pollutantsFact);
+    }
+    thePollutants.addEventListener("mouseover", thePollutantsClicked);
+
   };
   var MakeItDisappear = window.setInterval(disappear, 3000);
 </script>
