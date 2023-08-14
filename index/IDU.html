@@ -153,7 +153,7 @@
     // 2. Define the function that will respond to the event.
     // callback 
     var otherDivClicked = function() {
-      document.body.innerHTML = " "
+      document.body.innerHTML = ""
       document.body.style.backgroundColor = "rgb(239, 255, 166)";
       var otherHead = document.createElement("h1");
       otherHead.textContent = "Other ways to prevent pollution include:"
@@ -186,7 +186,7 @@
     //the Product
     var theProduct = document.getElementById("ourProductDiv");
     var theProductClicked = function() {
-      document.body.innerHTML = " ";
+      document.body.innerHTML = "";
       document.body.style.backgroundColor = "rgb(204, 245, 179)";
       var howItWorksHead = document.createElement("h1");
       howItWorksHead.textContent = "How our Product Works:"
@@ -199,7 +199,7 @@
     //The Pollutants - our enemies
     var thePollutants = document.getElementById("pollutantsDiv");
     var thePollutantsClicked = function() {
-      document.body.innerHTML = " ";
+      document.body.innerHTML = "";
       document.body.style.backgroundColor = "rgb(201, 201, 201)";
       var pollutantsHead = document.createElement("h1");
       pollutantsHead.textContent = "The Pollutants:"
@@ -212,7 +212,38 @@
       document.body.appendChild(pollutantsFact);
     }
     thePollutants.addEventListener("mouseover", thePollutantsClicked);
-
+var userEmissions = document.getElementById("myEmissionsDiv");
+var userEmissionsClicked = function() {
+  document.body.innerHTML = "";
+  document.body.style.backgroundColor = "rgb(255, 127, 127)";
+  var emissionsHead = document.createElement("h1");
+  emissionsHead.textContent = "Your Emissions:"
+document.body.appendChild(emissionsHead);
+var dailyAvg = document.createElement("p");
+dailyAvg.textContent = "Daily Average:";
+document.body.appendChild(dailyAvg);
+var weeklyAvg = document.createElement("p");
+weeklyAvg.textContent = "Weekly Average:";
+document.body.appendChild(weeklyAvg);
+var monthlyAvg = document.createElement("p");
+monthlyAvg.textContent = "Monthly Average:";
+document.body.appendChild(monthlyAvg);
+var yearlyAvg = document.createElement("p");
+yearlyAvg.textContent = "Yearly Average:"
+document.body.appendChild(yearlyAvg);
+}
+userEmissions.addEventListener("mouseover", userEmissionsClicked);
+var userSolutions = document.getElementById("solutionsDiv");
+var solutionsClicked = function() {
+  document.body.innerHTML = ""
+  document.body.style.backgroundColor = "rgb(70, 204, 150)";
+var solutionsHead = document.createElement("h2");
+solutionsHead.textContent = "What are your average emissions in tons?"
+document.body.appendChild(solutionsHead);
+var solutionInput = document.createElement("input");
+input.type = "number";
+}
+userSolutions.addEventListener("mouseover", solutionsClicked);
   };
   var MakeItDisappear = window.setInterval(disappear, 3000);
 </script>
