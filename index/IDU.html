@@ -192,7 +192,7 @@
       howItWorksHead.textContent = "How our Product Works:"
       document.body.appendChild(howItWorksHead);
       var howItWorks = document.createElement("p");
-      howItWorks.textContent = " Once you attach the sensor to the exhaust of the car, its emissions are recorded. This data is sent to this website. The website uses the data about your emissions to suggest the best solutions for you."
+      howItWorks.textContent = " Once you attach the sensor to the exhaust of the vehicle, its emissions are recorded. This data is sent to this website. The website uses the data about your emissions to suggest the best solutions for you."
     document.body.appendChild(howItWorks);
     }
     theProduct.addEventListener("mouseover", theProductClicked);
@@ -240,8 +240,37 @@ var solutionsClicked = function() {
 var solutionsHead = document.createElement("h2");
 solutionsHead.textContent = "What are your average emissions in tons?"
 document.body.appendChild(solutionsHead);
-var solutionInput = document.createElement("input");
-input.type = "number";
+var solutionInput = document.createElement("input")
+solutionInput.type = "number";
+document.body.appendChild(solutionInput);
+var button = document.createElement("button");
+button.textContent = "Calculate";
+document.body.appendChild(button);
+var solutionForEmission = document.createElement("h3");
+  solutionForEmission.textContent = " You should..."
+  document.body.appendChild(solutionForEmission);
+var buttonClicked = function() {
+  var emissionsValue = parseInt(solutionInput.value);
+  if ( emissionsValue >= 2 && emissionsValue <= 3) {
+          solutionForEmission.textContent = " try carpooling.";
+        }
+else if (emissionsValue >= 3 && emissionsValue <= 4) {
+          solutionForEmission.textContent = " try cutting down on unnecessary use of the vehicle.";
+        }
+else if (emissionsValue > 6) {
+          solutionForEmission.textContent = " try switching to an electric vehicle, preferably after the older vehicle is sold/unusable.";
+        }
+else if (emissionsValue >= 4 && emissionsValue <= 6) {
+          solutionForEmission.textContent = " try cutting down on unnecessary use of the vehicle. If that is not possible, try switching to an electric/hybrid vehicle, preferably after the older vehicle is sold/unusable.";
+        }
+else if (emissionsValue === 0) {
+  solutionForEmission.textContent = "Congratulations! You're fully sustainable!";
+}
+else {
+  solutionForEmission.textContent = "Be more precise.";
+}
+}
+button.addEventListener("click", buttonClicked);
 }
 userSolutions.addEventListener("mouseover", solutionsClicked);
   };
