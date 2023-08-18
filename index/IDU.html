@@ -23,23 +23,18 @@
     <canvas id="myCanvas"></canvas>
     <span id="startCar">  </span>
     <div id="otherWaysDiv">
-    <h2 id="otherWays"></h2>
   </div>
     <br>
     <div id="ourProductDiv">
-    <h2 id="ourProduct"></h2>
   </div>
     <br>
     <div id="pollutantsDiv">
-    <h2 id="pollutants"></h2>
     </div>
     <br>
     <div id="myEmissionsDiv">
-    <h2 id="myEmissions"></h2>
     </div>
     <br>
     <div id="solutionsDiv">
-    <h2 id="solutions"></h2>
   </div>
   <script>
     var car = document.getElementById("startCar");
@@ -127,7 +122,7 @@
       console.log("interval cleared")
       canvas.width = "0";
       canvas.height = "0";
-
+        
       var div = document.querySelectorAll("div");
     for (var i = 0; i < div.length; i++) {
                 div[i].className += " buttons";
@@ -136,17 +131,38 @@
       for (var u = 0; u<text.length; u++) {
         text[u].className+= " text";
       }
-      
-      var other = document.getElementById("otherWays");
-      other.innerHTML = "Other Ways To Prevent Pollution"
-      var product = document.getElementById("ourProduct");
-      product.innerHTML = "How Our Product Works";
-      var pollutant = document.getElementById("pollutants");
-      pollutant.innerHTML = "The Pollutants - Our Enemies";
-      var theEmissions = document.getElementById("myEmissions");
-      theEmissions.innerHTML = "My Emissions";
-      var solution = document.getElementById("solutions");
-      solution.innerHTML = "Solutions For You"
+  
+      var other = document.createElement("h2");
+      other.textContent = "Other Ways To Prevent Pollution";
+      document.body.appendChild(other);
+      var product = document.createElement("h2");
+      product.textContent = "How Our Product Works";
+      document.body.appendChild(product);
+      var pollutant = document.createElement("h2");
+      pollutant.textContent = "The Pollutants - Our Enemies";
+      document.body.appendChild(pollutant);
+      var theEmissions = document.createElement("h2");
+      theEmissions.textContent = "My Emissions";
+      document.body.appendChild(theEmissions);
+      var solution = document.createElement("h2");
+      solution.textContent = "Solutions For You"
+      document.body.appendChild(solution);
+      //go back function
+    /*var goBack = function() {
+      document.body.innerHTML = "";
+      document.body.style.backgroundColor = "white";
+      other.textContent = "Other Ways To Prevent Pollution";
+      product.textContent = "How Our Product Works";
+      pollutant.textContent = "The Pollutants - Our Enemies";
+      theEmissions.textContent = "My Emissions";
+      solution.textContent = "Solutions For You";
+      document.body.appendChild(other);
+      document.body.appendChild(product);
+      document.body.appendChild(pollutant);
+      document.body.appendChild(theEmissions);
+      document.body.appendChild(solution);
+      }*/
+
       //other ways to prevent polllution:
       // 1. Find and store the element we want to listen to events on.
     var otherDiv = document.getElementById("otherWaysDiv");
@@ -180,6 +196,13 @@
       document.body.appendChild(optionsList);
 
       });
+      var back = document.createElement("img");
+      back.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa57bVy9IT0HntM8W31H8AzZpyjtXKxqW9pA&usqp=CAU";
+      document.body.appendChild(back);
+      var goBack = function() {
+        disappear();
+      }
+      back.addEventListener("click", goBack);
     }
     // 3. Add the event listener for the element and function
     otherDiv.addEventListener("mouseover", otherDivClicked);
@@ -252,16 +275,16 @@ var solutionForEmission = document.createElement("h3");
 var buttonClicked = function() {
   var emissionsValue = parseInt(solutionInput.value);
   if ( emissionsValue >= 2 && emissionsValue <= 3) {
-          solutionForEmission.textContent = " try carpooling.";
+          solutionForEmission.textContent = " You should... try carpooling.";
         }
 else if (emissionsValue >= 3 && emissionsValue <= 4) {
-          solutionForEmission.textContent = " try cutting down on unnecessary use of the vehicle.";
+          solutionForEmission.textContent = " You should... try cutting down on unnecessary use of the vehicle.";
         }
-else if (emissionsValue > 6) {
-          solutionForEmission.textContent = " try switching to an electric vehicle, preferably after the older vehicle is sold/unusable.";
+else if (emissionsValue => 6) {
+          solutionForEmission.textContent = " You should... try switching to an electric vehicle, preferably after the older vehicle is sold/unusable.";
         }
 else if (emissionsValue >= 4 && emissionsValue <= 6) {
-          solutionForEmission.textContent = " try cutting down on unnecessary use of the vehicle. If that is not possible, try switching to an electric/hybrid vehicle, preferably after the older vehicle is sold/unusable.";
+          solutionForEmission.textContent = " You should... try cutting down on unnecessary use of the vehicle. If that is not possible, try switching to an electric/hybrid vehicle, preferably after the older vehicle is sold/unusable.";
         }
 else if (emissionsValue === 0) {
   solutionForEmission.textContent = "Congratulations! You're fully sustainable!";
